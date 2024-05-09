@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="com.sds.movieapp.model.member.MemberDAO">
+	
+	<insert id="insert" parameterType="Member">
+		insert into member(uid, nickname, email, sns_idx, role_idx)
+		values(#{uid},#{nickname},#{email},#{sns.idx},#{role.role_idx})
+	</insert>
+
+</mapper>
+
+
+
+
+

@@ -1,0 +1,22 @@
+create table sns(
+	sns_idx primary key auto_increment
+	, sns_name varchar(12)
+);
+
+create table role(
+	role_idx primary key auto_increment
+	, role_name varchar(12)
+);
+
+drop table member;
+
+create table member (
+	member_id primary key auto_increment
+	, uid varchar(43)
+	, nickname varchar(20)
+	, email varchar(30)
+	, sns_idx int
+	, role_idx int
+	, constraint fk_sns_member foreign key(sns_idx) references sns(sns_idx)
+	, constraint fk_role_member foreign key(role_idx) references role(role_idx)
+) default character encoding utf8;

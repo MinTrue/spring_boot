@@ -1,0 +1,56 @@
+package com.sds.movieapp.model.cs.notice;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sds.movieapp.domain.Notice;
+
+public class NoticeServiceImpl2 implements NoticeService2 {
+	
+	@Autowired
+	private NoticeDAO2 noticeDAO2;
+
+	@Override
+	public int selectCount() {
+		return noticeDAO2.selectCount();
+	}
+
+	@Override
+	public List selectAll(Map map) {
+		return noticeDAO2.selectAll(map);
+	}
+
+	@Override
+	public Notice select(Notice notice) {
+		return noticeDAO2.select(notice);
+	}
+
+	@Override
+	public void insert(Notice notice) throws NoticeException{
+		
+		noticeDAO2.insert(notice);
+		
+	}
+
+	@Override
+	public void update(Notice notice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Notice notice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	
+	
+
+	
+	
+}

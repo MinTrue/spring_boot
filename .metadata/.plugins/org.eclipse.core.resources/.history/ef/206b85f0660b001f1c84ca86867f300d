@@ -1,0 +1,43 @@
+package com.sds.movieapp.model.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.sds.movieapp.domain.Member;
+import com.sds.movieapp.domain.MemberDetail;
+import com.sds.movieapp.domain.Role;
+import com.sds.movieapp.domain.Sns;
+import com.sds.movieapp.exception.MemberException;
+
+@Service
+public class MemberServiceImpl2 implements MemberService2{
+	@Autowired
+	private SnsDAO snsDAO;
+	
+	@Autowired
+	private RoleDAO roleDAO;
+	
+	private MemberDAO memberDAO;
+	
+	@Autowired
+	private MemberDetailDAO memberDetailDAO;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	@Override
+	public void regist(Member member) {
+		
+		
+	}
+	
+	
+}
+
+
+
+
+
+

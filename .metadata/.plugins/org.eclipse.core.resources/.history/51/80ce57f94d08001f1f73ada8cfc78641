@@ -1,0 +1,6 @@
+package com.sds.movieapp.domain;
+
+//회원의 상세정보를 가진 객체임.. 단 스프링이 지원하는 기술을 구현해야 함
+public class CustomUserDetails {
+
+}

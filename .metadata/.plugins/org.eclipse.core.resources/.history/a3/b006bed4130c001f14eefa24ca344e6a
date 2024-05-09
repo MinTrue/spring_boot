@@ -1,0 +1,21 @@
+package com.sds.movieapp.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RestController
+//비동기 방식의 컨트롤러
+public class RestMovieController {
+	
+	//영화평 등록 요청을 처리  (누가, 어떤영화 어떤평가내용, 평점 파라미터 )
+	@PostMapping("/movie/comments")
+	public ResponseEntity regist() {
+		
+		
+		return null;
+	}
+}

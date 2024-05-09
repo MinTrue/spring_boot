@@ -1,0 +1,12 @@
+package com.sds.movieapp.document;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.Data;
+
+@Data
+@Document(collation = "comments")
+public class Comments {
+	
+	private String content;
+}

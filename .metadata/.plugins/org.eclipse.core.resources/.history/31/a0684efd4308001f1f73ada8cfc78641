@@ -1,0 +1,22 @@
+package com.sds.movieapp.model.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sds.movieapp.domain.Member;
+
+@Service
+public class MemberDetailServiceImpl implements MemberService{
+
+	@Autowired
+	private MemberDAO memberDAO;
+	
+	@Autowired
+	private MemberDetailDAO memberDetailDAO;
+	
+	public void regist(Member member) {
+		/
+		
+	}
+
+}

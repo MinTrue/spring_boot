@@ -1,0 +1,29 @@
+package com.sds.movieapp.model.recommend;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.mahout.cf.taste.impl.model.GenericPreference;
+import org.apache.mahout.cf.taste.model.DataModel;
+
+import com.sds.movieapp.domain.CommentsDoc;
+
+import lombok.extern.slf4j.Slf4j;
+
+//우리가 작성한 영화평 데이터를 이용한 데이터 모델 생성하기 위한 객체
+@Slf4j
+public class CustomModel {
+	//Mahout에서 지원하는 객체
+	private DataModel dataModel; //이 모델이 우리가 보유한 데이터를 이해하도록 코드 작성
+	
+	public CustomModel(List<CommentsDoc> commentsList) {
+		
+		//Map<사용자id , 영화평 리스트>
+		//GenericPreference 에는 {member_idx, movie_idx, score} : 영화 평 한개의 정보를 가진 객체
+		Map<Long, List<GenericPreference>> preferMap = new HashMap();
+		
+		
+		//dataModel = new GenericDataModel(null);
+	}
+}

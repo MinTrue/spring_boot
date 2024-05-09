@@ -1,0 +1,102 @@
+package com.sds.movieapp.controller;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.sds.movieapp.common.Pager;
+import com.sds.movieapp.domain.Notice;
+import com.sds.movieapp.exception.NoticeException;
+import com.sds.movieapp.model.cs.notice.NoticeService;
+import com.sds.movieapp.model.cs.notice.NoticeService2;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+public class NoticeController2 {
+	
+	@Autowired
+	private NoticeService2 noticeService2;
+	
+	@Autowired
+	private Pager pager;
+	
+	//게시물 목록
+	@GetMapping("/cs/notice/list")
+	public String getList(Model model, @RequestParam(value = "currentPage", defaultValue = "1") int currentPage) {
+		
+		pager.init(noticeService2.selectCount(), currentPage);
+		
+		HashMap map = new HashMap();
+		map.put("startIndex", pager.getStartIndex());
+		map.put("rowCount", pager.getPageSize());
+		
+		List noticeList = noticeService2.selectAll(map);
+		model.addAttribute("noticteList",noticeList);
+		model.addAttribute("pager", pager);
+		
+		return "/cs/notice/list";
+	}
+	
+	//글쓰기 폼 요청 처리
+	@GetMapping("/cs/notice/writefrom")
+	public String getWriteForm() {
+		return "/cs/notice/regist";
+	}
+	
+	//글 쓰기 요청처리
+	@GetMapping("/cs/notice/regist")
+	public String regist(Notice notice) {
+		
+		noticeService2.insert(notice);
+		
+		return "redirect:/cs/notice/list";
+	}
+	
+	//글 한건 요청 처리
+	@GetMapping("/cs.notice/detail")
+	public String getDetail(Notice notice, Model model) {
+		Notice dto = noticeService2.select(notice);
+		model.addAttribute("notice", dto);
+		return "cs/notice/content";
+	}
+	
+	//글 한건 수정 요청 처리
+	@GetMapping("/cs/notice/edit")
+	public String edit(Notice notice) {
+		noticeService2.update(notice);	
+		return "redirect:/cs/notice/detail?id="+notice.getId();
+	}
+	
+	//글 한건 삭제 요청 처리
+	@GetMapping("/cs/notice/del")
+	public String del(Notice notice) {
+		noticeService2.delete(notice);
+		return "redirect:/cs/notice/list";
+	}
+	@ExceptionHandler(NoticeException.class)
+	public ModelAndView handle(NoticeException e) {
+		ModelAndView mav = new ModelAndView("error/result");
+		mav.addObject("e", e);
+		
+	
+		return mav;
+	}
+}
+
+
+
+
+
+
+
+

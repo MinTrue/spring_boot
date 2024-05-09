@@ -1,0 +1,37 @@
+package test;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class ActionTest extends JFrame{
+	JButton bt;
+	
+	public ActionTest() {
+		bt = new JButton("버튼");
+		setLayout(new FlowLayout());
+		
+		add(bt);
+		
+		setSize(200,250);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		new ActionTest();
+	}
+	
+		
+		
+		
+		
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

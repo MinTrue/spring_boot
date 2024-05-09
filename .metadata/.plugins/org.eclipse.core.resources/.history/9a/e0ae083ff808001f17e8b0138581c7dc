@@ -1,0 +1,12 @@
+package com.sds.movieapp.model.cs.notice;
+
+import java.util.List;
+import java.util.Map;
+
+public interface NoticeDAO {
+
+	public int selectCount(); //게시물 수
+	public List selctAll(Map map); //모든 게시물 가져오기
+	public void insert(Notice notice);
+	
+}

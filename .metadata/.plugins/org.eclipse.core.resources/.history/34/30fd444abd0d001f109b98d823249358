@@ -1,0 +1,8 @@
+package com.sds.movieapp.model.recommend;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class RecommendServiceImpl implements RecommendService{
+
+}

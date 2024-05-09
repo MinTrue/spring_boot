@@ -1,0 +1,73 @@
+package com.sds.movieapp.model.cs.notice;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
+
+import com.mongodb.client.result.DeleteResult;
+import com.sds.movieapp.domain.Notice;
+import com.sds.movieapp.exception.NoticeException;
+
+import lombok.extern.slf4j.Slf4j;
+
+
+public class MongoNoticeDAO2 implements NoticeDAO2  {
+
+	private MongoTemplate mongoTemplate;
+	
+	@Override
+	public int selectCount() {
+		
+		
+		return 0;
+	}
+	
+
+	@Override
+	public List selectAll(Map map) {
+		int startIndex =(int)map.get("startIndex");
+		int rowCount = (int)map.get("rowcount");
+		
+		Query query =new Query().skip(startIndex).limit(rowCount);
+		
+			
+		return mongoTemplate.find(query, Notice.class);
+	}
+
+	@Override
+	public Notice notice(Notice notice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insert(Notice notice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Notice notice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Notice notice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int selectCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+}

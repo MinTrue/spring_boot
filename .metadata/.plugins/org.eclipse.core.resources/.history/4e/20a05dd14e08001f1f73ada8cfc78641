@@ -1,0 +1,54 @@
+package com.sds.movieapp.domain;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+//회원의 상세정보를 가진 객체임.. 단 스프링이 지원하는 기술을 구현해야 함
+public class CustomUserDetails implements UserDetails {
+
+	//우리가 이미 정의해놓은 Meber DTO 정보를 참고하여, 아래의 메서드들에서 정보들을 처리
+	private Member member;
+	
+	public CustomUserDetails(Member member) {
+		this.member = member;
+	}
+	
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		Collection<GrantedAuthority> authList = new ArrayList();
+		authList.add();
+		return null;
+	}
+
+	public String getPassword() {
+		return member.getMemberDetail().getPassword();
+	}
+
+	public String getUsername() {
+		return member.getNickname();
+	}
+
+	//계정이 만료 메서드
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	//계정 잠긴 메서드
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	//자격 메서드
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	//활성화 메서드
+	public boolean isEnabled() {
+		return true;
+	}
+
+	
+}

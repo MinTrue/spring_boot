@@ -1,0 +1,12 @@
+package com.sds.movieapp.sns;
+
+import lombok.Data;
+
+//네
+@Data
+public class NaverOAuthToken {
+	private String acess_token;
+	private String refresh_token;
+	private String token_type;
+	private String expires_in;
+}

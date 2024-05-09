@@ -1,0 +1,16 @@
+package com.sds.movieapp.exception;
+
+public class NoticeException2 extends RuntimeException{
+
+	public NoticeException2(String msg) {
+		super(msg);
+	}
+	
+	public NoticeException2(String msg, Throwable e) {
+		super(msg ,e);
+	}
+	
+	public NoticeException2(Throwable e) {
+		super(e);
+	}
+}

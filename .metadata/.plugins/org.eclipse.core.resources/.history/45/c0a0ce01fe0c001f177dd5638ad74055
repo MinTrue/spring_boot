@@ -1,0 +1,12 @@
+package com.sds.movieapp.controller;
+
+import org.springframework.stereotype.Controller;
+
+import lombok.extern.slf4j.Slf4j;
+
+//영화 추천 요청을 처리하는 하위 컨트롤러
+@Slf4j
+@Controller
+public class RecommendCotroller {
+
+}

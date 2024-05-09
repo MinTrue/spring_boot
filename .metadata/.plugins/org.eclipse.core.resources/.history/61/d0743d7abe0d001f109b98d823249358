@@ -1,0 +1,27 @@
+package com.sds.movieapp.model.recommend;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sds.movieapp.model.comments.CommentsDocDAO;
+
+@Service
+public class RecommendServiceImpl implements RecommendService{
+
+	@Autowired
+	private CommentsDocDAO commentsDocDAO;
+	
+	@Override
+	public List getList(int member_idx) {
+		
+		/*-------------------------------------------------------
+		  1차적으로 유저가 등록한 모든 영화평을 수집하자
+		 ---------------------------------------------------------*/
+		
+		
+		return null;
+	}
+
+}

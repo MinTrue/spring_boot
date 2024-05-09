@@ -1,0 +1,15 @@
+package com.sds.movieapp.document;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.Data;
+
+@Data
+@Document(collation = "movie")
+public class Movie {
+
+	@Id
+	private String id;
+	
+	private int movie_idx;
+}

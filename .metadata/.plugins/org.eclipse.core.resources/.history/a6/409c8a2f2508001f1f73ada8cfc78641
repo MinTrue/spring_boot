@@ -1,0 +1,9 @@
+create table sns(
+	sns_idx primary key auto_increment
+	, sns_name varchar(12)
+);
+
+create table role(
+	role_idx primary key auto_increment
+	, role_name varchar(12)
+);
